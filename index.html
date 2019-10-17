@@ -12,6 +12,58 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <!-- sign_in -->
+      <form id='sign-in'>
+        <input type="email" name="credentials[email]" placeholder='Enter email' required>
+        <input type="password" name="credentials[password]" placeholder='Enter password' required>
+        <button class=" button signInButton">Sign In</button>
+      </form>
+      <!-- sign_up -->
+      <form id='sign-up'>
+        <input type="email" name="credentials[email]" placeholder='Enter email' required>
+        <input type="password" name="credentials[password]" placeholder='Enter password' required>
+        <input type="password" name="credentials[password_confirmation]" placeholder='Enter password again' required>
+        <button class=" button signUpButton">Sign Up</button>
+      </form>
+      <!-- change_pwd -->
+      <form class="changepassword" id='change-password'>
+        <input type="password" name="passwords[old]" placeholder='Enter old password' required>
+        <input type="password" name="passwords[new]" placeholder='Enter new password' required>
+        <button class=" button changePasswordButton" id="toShowChangePasswordForm">Change Password</button>
+      </form>
+      <!-- sign_out -->
+      <form class="signout" id='sign-out'>
+        <button class="button signOutButton" id="toShowSignOut">Sign Out</button>
+      </form>
+      <!-- create_team -->
+      <form id='create_team'>
+        <input type="text" name="teams[name]" id="create_team_name" placeholder='Enter team_name' required>
+        <input type="date" name="teams[create_date]" id="create_team_create_date" placeholder='Enter create_date' required>
+        <input type="text" name="teams[comment]" id="create_team_comment" placeholder='Enter comment'>
+        <button class=" button signInButton">Create Team</button>
+      </form>
+      <!-- index_team -->
+      <form id='index_team'>
+        <button class=" button signInButton">All Teams</button>
+      </form>
+      <!-- show_team -->
+      <form id='show_team'>
+        <input type="text" name="teams[id]" id="show_team_id" placeholder='Enter your_team_id' required>
+        <button class=" button signInButton">Select Team</button>
+      </form>
+      <!-- show_team -->
+      <form id='update_team'>
+        <input type="text" name="teams[id]" id="update_team_id" placeholder='Enter your_team_id' required>
+        <input type="text" name="teams[name]" id="update_team_name" placeholder='Enter team_name'>
+        <input type="text" name="teams[comment]" id="update_team_comment" placeholder='Enter comment'>
+        <button class=" button signInButton">Update Team</button>
+      </form>
+      <!-- clean_index_team -->
+      <form id='clean_index_team'>
+        <button class=" button signInButton">Clean All Teams</button>
+      </form>
+      <h2 class="message" id="all_teams_information"></h2>
+      <h2 class="message" id="one_team_information"></h2>
+      <h2 class="message" id="user_message"></h2>
     </body>
 </html>
