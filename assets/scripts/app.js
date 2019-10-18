@@ -17,4 +17,8 @@ $(() => {
   $('#show_team').on('submit', events.onShowTeam)
   $('#update_team').on('submit', events.onUpdateTeam)
   $('#destroy_team').on('submit', events.onDestroyTeam)
+  $('#show_all_heros').on('submit', events.onShowAllHeros)
+  $('#clean_all_heros').on('submit', events.onCleanAllHeros)
+  $('#create_member').on('submit', events.onCreateMember)
+  $('#show_all_members').on('submit', events.onShowAllMembers)
 })

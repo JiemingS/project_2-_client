@@ -1,10 +1,10 @@
 {{#each teams as |team|}}
   {{log team}}
 <div class="col-4">
-  <section data-id="{{team.id}}">
-    <h6><span class="wordRed">Id: </span>{{team.id}}</h6>
-    <h6><span class="wordRed">Name: </span>{{limit team.name 15}}</h6>
-    <h6 class="wordRed">Date:</h6>
+  <section data-id="{{team.id}}"  class="one_part_of_the_list">
+    <h6><span class="wordRed">Team_Id: </span>{{team.id}}</h6>
+    <h6><span class="wordRed">Team_Name: </span>{{limit team.name 15}}</h6>
+    <h6 class="wordRed">Create_Date:</h6>
     <h5>
       {{#if team.create_date}}
         {{team.create_date}}
@@ -12,6 +12,17 @@
         No date provided.
       {{/if}}
     </h5>
+    <h6><span class="wordRed">Heros_Name: </span></h6>
+    {{#each team.heros as |hero|}}
+      {{log hero}}
+      <h6>
+        {{#if hero.name}}
+          {{hero.name}}
+        {{else}}
+          No hero in this team.
+        {{/if}}
+      </h6>
+    {{/each}}
     <h6 class="wordRed">Comment:</h6>
     <h5>
       {{#if team.comment}}
@@ -20,9 +31,6 @@
         No comment provided.
       {{/if}}
     </h5>
-    -----------------------------
-
   </section>
 </div>
-
 {{/each}}

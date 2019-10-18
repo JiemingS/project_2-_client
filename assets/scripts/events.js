@@ -110,6 +110,40 @@ const onDestroyTeam = function (event) {
     .catch(ui.onDestroyTeamFailure)
 }
 
+const onShowAllHeros = function (event) {
+  event.preventDefault()
+  api.showAllHeros()
+    .then(ui.onShowAllHerosSuccess)
+    .catch(ui.onShowAllHerosFailure)
+}
+
+const onCleanAllHeros = function (event) {
+  event.preventDefault()
+  $('#all_heros_information').html('')
+}
+
+const onCreateMember = function (event) {
+  event.preventDefault()
+  const createMemberTeamId = document.getElementById('create_member_team_id').value
+  const createMemberHeroId = document.getElementById('create_member_hero_id').value
+  const dataObj = {
+    member: {
+      team_id: createMemberTeamId,
+      hero_id: createMemberHeroId
+    }
+  }
+  api.createMember(dataObj)
+    .then(ui.onCreateMemberSuccess)
+    .catch(ui.onCreateMemberFailure)
+}
+
+const onShowAllMembers = function (event) {
+  event.preventDefault()
+  api.showAllMembers()
+    .then(ui.onShowAllMembersSuccess)
+    .catch(ui.onShowAllMembersFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -120,5 +154,9 @@ module.exports = {
   onCleanIndexTeam,
   onShowTeam,
   onUpdateTeam,
-  onDestroyTeam
+  onDestroyTeam,
+  onShowAllHeros,
+  onCleanAllHeros,
+  onCreateMember,
+  onShowAllMembers
 }

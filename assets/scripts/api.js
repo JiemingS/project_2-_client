@@ -95,6 +95,37 @@ const destroyTeam = function (destroyTeamId) {
   })
 }
 
+const showAllHeros = function () {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/heros',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const createMember = function (formData) {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/members',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: formData
+  })
+}
+
+const showAllMembers = function () {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/members',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -104,5 +135,8 @@ module.exports = {
   indexTeam,
   showTeam,
   updateTeam,
-  destroyTeam
+  destroyTeam,
+  showAllHeros,
+  createMember,
+  showAllMembers
 }

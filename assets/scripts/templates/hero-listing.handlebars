@@ -1,0 +1,9 @@
+{{#each heros as |hero|}}
+  {{log hero}}
+<div class="col-4">
+  <section data-id="{{hero.id}}" class="one_part_of_the_list">
+    <h6><span class="wordRed">Hero_Id: </span>{{hero.id}}</h6>
+    <h6><span class="wordRed">Hero_Name: </span>{{limit hero.name 15}}</h6>
+  </section>
+</div>
+{{/each}}

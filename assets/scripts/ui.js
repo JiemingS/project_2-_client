@@ -5,6 +5,8 @@
 const store = require('./store')
 const showTeamsTemplate = require('./templates/team-listing.handlebars')
 const selectTeamTemplate = require('./templates/team-showing.handlebars')
+const showHerosTemplate = require('./templates/hero-listing.handlebars')
+const showMembersTemplate = require('./templates/member-listing.handlebars')
 
 const successMessage = function (newText) {
   $('#user_message').text(newText)
@@ -129,6 +131,7 @@ const onUpdateTeamSuccess = function (responseData) {
   console.log('responseData is ', responseData)
   $('#update_team').trigger('reset')
   $('#one_team_information').html('')
+  $('#all_teams_information').html('')
 
   const selectTeamHtml = selectTeamTemplate({ team: responseData })
   console.log('selectTeamHtml is ', selectTeamHtml)
@@ -158,6 +161,61 @@ const onDestroyTeamFailure = function (responseData) {
   $('#destroy_team').trigger('reset')
 }
 
+const onShowAllHerosSuccess = function (responseData) {
+  successMessage('Show heros successfully!')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+  console.log('All heros are: ', responseData)
+  $('#show_all_heros').trigger('reset')
+  $('#all_heros_information').html('')
+
+  const showHerosHtml = showHerosTemplate({ heros: responseData.heros })
+  console.log(showHerosHtml)
+  $('#all_heros_information').append(showHerosHtml)
+}
+
+const onShowAllHerosFailure = function (responseData) {
+  failureMessage('Show heros failed')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+  $('#show_all_heros').trigger('reset')
+}
+
+const onCreateMemberSuccess = function (responseData) {
+  successMessage('Create Member successfully!')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+  console.log('onCreateMemberSuccess is ', responseData.member.team)
+  $('#create_member').trigger('reset')
+  $('#one_team_information').html('')
+
+  // const selectTeamHtml = selectTeamTemplate({ team: responseData.member })
+  // console.log('selectTeamHtml is ', selectTeamHtml)
+  // $('#one_team_information').append(selectTeamHtml)
+}
+
+const onCreateMemberFailure = function (responseData) {
+  failureMessage('Create member failed')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+  // console.log('responseData is ', responseData)
+  $('#create_member').trigger('reset')
+}
+
+const onShowAllMembersSuccess = function (responseData) {
+  successMessage('Show All Members successfully!')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+  console.log('responseData is ', responseData)
+  console.log('responseData is ', responseData.members)
+  $('#all_members_information').html('')
+
+  const showMembersHtml = showMembersTemplate({ members: responseData.members })
+  console.log('is ', showMembersHtml)
+  $('#all_members_information').append(showMembersHtml)
+}
+
+const onShowAllMembersFailure = function (responseData) {
+  failureMessage('Show All Members failed')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+  console.log('responseData is ', responseData)
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -176,5 +234,11 @@ module.exports = {
   onUpdateTeamSuccess,
   onUpdateTeamFailure,
   onDestroyTeamSuccess,
-  onDestroyTeamFailure
+  onDestroyTeamFailure,
+  onShowAllHerosSuccess,
+  onShowAllHerosFailure,
+  onCreateMemberSuccess,
+  onCreateMemberFailure,
+  onShowAllMembersSuccess,
+  onShowAllMembersFailure
 }
