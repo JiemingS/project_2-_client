@@ -1,5 +1,6 @@
 {{#each teams as |team|}}
   {{log team}}
+<div class="col-4">
   <section data-id="{{team.id}}">
     <h6><span class="wordRed">Id: </span>{{team.id}}</h6>
     <h6><span class="wordRed">Name: </span>{{limit team.name 15}}</h6>
@@ -22,5 +23,6 @@
     -----------------------------
 
   </section>
+</div>
 
 {{/each}}

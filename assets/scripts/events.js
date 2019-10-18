@@ -102,6 +102,14 @@ const onUpdateTeam = function (event) {
     .catch(ui.onUpdateTeamFailure)
 }
 
+const onDestroyTeam = function (event) {
+  event.preventDefault()
+  const destroyTeamId = document.getElementById('destroy_team_id').value
+  api.destroyTeam(destroyTeamId)
+    .then(ui.onDestroyTeamSuccess)
+    .catch(ui.onDestroyTeamFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -111,5 +119,6 @@ module.exports = {
   onIndexTeam,
   onCleanIndexTeam,
   onShowTeam,
-  onUpdateTeam
+  onUpdateTeam,
+  onDestroyTeam
 }

@@ -142,6 +142,22 @@ const onUpdateTeamFailure = function (responseData) {
   $('#update_team').trigger('reset')
 }
 
+const onDestroyTeamSuccess = function (responseData) {
+  successMessage('Delete team successfully!')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+  // console.log('responseData is ', responseData)
+  $('#destroy_team').trigger('reset')
+  $('#one_team_information').html('')
+  $('#all_teams_information').html('')
+}
+
+const onDestroyTeamFailure = function (responseData) {
+  failureMessage('Delete team failed')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+  // console.log('responseData is ', responseData)
+  $('#destroy_team').trigger('reset')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -158,5 +174,7 @@ module.exports = {
   onShowTeamSuccess,
   onShowTeamFailure,
   onUpdateTeamSuccess,
-  onUpdateTeamFailure
+  onUpdateTeamFailure,
+  onDestroyTeamSuccess,
+  onDestroyTeamFailure
 }

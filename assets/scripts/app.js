@@ -16,4 +16,5 @@ $(() => {
   $('#clean_index_team').on('submit', events.onCleanIndexTeam)
   $('#show_team').on('submit', events.onShowTeam)
   $('#update_team').on('submit', events.onUpdateTeam)
+  $('#destroy_team').on('submit', events.onDestroyTeam)
 })

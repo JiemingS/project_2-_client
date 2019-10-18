@@ -85,6 +85,16 @@ const updateTeam = function (dataObj, updateTeamId) {
   })
 }
 
+const destroyTeam = function (destroyTeamId) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/teams/' + destroyTeamId,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -93,5 +103,6 @@ module.exports = {
   createTeam,
   indexTeam,
   showTeam,
-  updateTeam
+  updateTeam,
+  destroyTeam
 }
