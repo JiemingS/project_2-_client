@@ -11,84 +11,110 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body>
-      <!-- sign_in -->
-      <form id='sign-in'>
-        <input type="email" name="credentials[email]" placeholder='Enter email' required>
-        <input type="password" name="credentials[password]" placeholder='Enter password' required>
-        <button class=" button signInButton">Sign In</button>
-      </form>
-      <!-- sign_up -->
-      <form id='sign-up'>
-        <input type="email" name="credentials[email]" placeholder='Enter email' required>
-        <input type="password" name="credentials[password]" placeholder='Enter password' required>
-        <input type="password" name="credentials[password_confirmation]" placeholder='Enter password again' required>
-        <button class=" button signUpButton">Sign Up</button>
-      </form>
-      <!-- change_pwd -->
-      <form class="changepassword" id='change-password'>
-        <input type="password" name="passwords[old]" placeholder='Enter old password' required>
-        <input type="password" name="passwords[new]" placeholder='Enter new password' required>
-        <button class=" button changePasswordButton" id="toShowChangePasswordForm">Change Password</button>
-      </form>
-      <!-- sign_out -->
-      <form class="signout" id='sign-out'>
-        <button class="button signOutButton" id="toShowSignOut">Sign Out</button>
-      </form>
-      <!-- create_team -->
-      <form id='create_team'>
-        <input type="text" name="teams[name]" id="create_team_name" placeholder='Enter team_name' required>
-        <input type="date" name="teams[create_date]" id="create_team_create_date" placeholder='Enter create_date' required>
-        <input type="text" name="teams[comment]" id="create_team_comment" placeholder='Enter comment'>
-        <button class=" button signInButton">Create Team</button>
-      </form>
-      <!-- index_team -->
-      <form id='index_team'>
-        <button class=" button signInButton">See Your Teams</button>
-      </form>
-      <!-- show_team -->
-      <form id='show_team'>
-        <input type="text" name="teams[id]" id="show_team_id" placeholder='Enter your_team_id' required>
-        <button class=" button signInButton">Select Team</button>
-      </form>
-      <!-- show_team -->
-      <form id='update_team'>
-        <input type="text" name="teams[id]" id="update_team_id" placeholder='Enter your_team_id' required>
-        <input type="text" name="teams[name]" id="update_team_name" placeholder='Enter team_name'>
-        <input type="text" name="teams[comment]" id="update_team_comment" placeholder='Enter comment'>
-        <button class=" button signInButton">Update Team</button>
-      </form>
-      <!-- destroy_team -->
-      <form id='destroy_team'>
-        <input type="text" name="teams[id]" id="destroy_team_id" placeholder='Enter your_team_id' required>
-        <button class=" button signInButton">Delete Team</button>
-      </form>
-      <!-- clean_index_team -->
-      <form id='clean_index_team'>
-        <button class=" button signInButton">Clean All Teams</button>
-      </form>
-      <!-- show_all_heros -->
-      <form  id='show_all_heros'>
-        <button class=" button signInButton">Show All Heros</button>
-      </form>
-      <!-- clean_all_heros -->
-      <form id='clean_all_heros'>
-        <button class=" button signInButton">Clean All Heros</button>
-      </form>
-      <!-- create_team -->
-      <form id='create_member'>
-        <input type="text" name="members[team_id]" id="create_member_team_id" placeholder='Enter team_id' required>
-        <input type="text" name="members[hero_id]" id="create_member_hero_id" placeholder='Enter hero_id' required>
-        <button class=" button signInButton">Add Member</button>
-      </form>
-      <!-- show_all_members -->
-      <form  id='show_all_members'>
-        <button class=" button signInButton">Show All Members</button>
-      </form>
-      <h2 class="all_teams_information" id="all_teams_information"></h2>
-      <h2 class="message" id="one_team_information"></h2>
-      <h2 class="message" id="all_heros_information"></h2>
-      <h2 class="message" id="all_members_information"></h2>
+    <body id='body'>
+      <!--                        sign_in_and_sign_up                        -->
+      <section class='container sign_in_and_sign_up' id='sign_in_and_sign_up'>
+        <!-- sign_in -->
+        <form class='sign_in' id='sign-in'>
+          <input class='box' type="email" name="credentials[email]" placeholder='Enter email' required>
+          <input class='box' type="password" name="credentials[password]" placeholder='Enter password' required>
+          <button class="box button signInButton">Sign In</button>
+        </form>
+        <!-- sign_up -->
+        <form class='sign_up' id='sign-up'>
+          <input class='box' type="email" name="credentials[email]" placeholder='Enter email' required>
+          <input class='box' type="password" name="credentials[password]" placeholder='Enter password' required>
+          <input class='box' type="password" name="credentials[password_confirmation]" placeholder='Enter password again' required>
+          <button class="box button signUpButton">Sign Up</button>
+        </form>
+      </section>
+      <!--                    changePassword_and_sign_out                    -->
+      <section id='changePassword_and_sign_out'>
+        <!-- change_pwd -->
+        <form class="changepassword" id='change-password'>
+          <input type="password" name="passwords[old]" placeholder='Enter old password' required>
+          <input type="password" name="passwords[new]" placeholder='Enter new password' required>
+          <button class=" button changePasswordButton" id="toShowChangePasswordForm">Change Password</button>
+        </form>
+        <!-- sign_out -->
+        <form class="signout" id='sign-out'>
+          <button class="button signOutButton" id="toShowSignOut">Sign Out</button>
+        </form>
+      </section>
+      <!--                         all_team_function                         -->
+      <section id='all_team_function'>
+        <!-- index_team -->
+        <form id='index_team'>
+          <button class=" button signInButton">See Your Teams</button>
+        </form>
+        <!-- create_team -->
+        <form id='create_team'>
+          <input type="text" name="teams[name]" id="create_team_name" placeholder='Enter team_name' required>
+          <input type="date" name="teams[create_date]" id="create_team_create_date" placeholder='Enter create_date' required>
+          <input type="text" name="teams[comment]" id="create_team_comment" placeholder='Enter comment'>
+          <button class=" button signInButton">Create Team</button>
+        </form>
+        <!-- show_team -->
+        <form id='show_team'>
+          <input type="text" name="teams[id]" id="show_team_id" placeholder='Enter your_team_id' required>
+          <button class=" button signInButton">Select Team</button>
+        </form>
+        <!-- show_team -->
+        <form id='update_team'>
+          <input type="text" name="teams[id]" id="update_team_id" placeholder='Enter your_team_id' required>
+          <input type="text" name="teams[name]" id="update_team_name" placeholder='Enter team_name'>
+          <input type="text" name="teams[comment]" id="update_team_comment" placeholder='Enter comment'>
+          <button class=" button signInButton">Update Team</button>
+        </form>
+        <!-- destroy_team -->
+        <form id='destroy_team'>
+          <input type="text" name="teams[id]" id="destroy_team_id" placeholder='Enter your_team_id' required>
+          <button class=" button signInButton">Delete Team</button>
+        </form>
+        <!-- clean_index_team -->
+        <form id='clean_index_team'>
+          <button class=" button signInButton">Clean Teams Form</button>
+        </form>
+      </section>
+      <!--                         all_hero_function                         -->
+      <section id='all_hero_function'>
+        <!-- show_all_heros -->
+        <form  id='show_all_heros'>
+          <button class=" button signInButton">Show All Heros</button>
+        </form>
+        <!-- clean_all_heros -->
+        <form id='clean_all_heros'>
+          <button class=" button signInButton">Clean Heros Form</button>
+        </form>
+      </section>
+      <!--                        all_member_function                        -->
+      <section id='all_member_function'>
+        <!-- show_all_members -->
+        <form  id='show_all_members'>
+          <button class=" button signInButton">Show Members Form</button>
+        </form>
+        <!-- create_member -->
+        <form id='create_member'>
+          <input type="text" name="members[team_id]" id="create_member_team_id" placeholder='Enter team_id' required>
+          <input type="text" name="members[hero_id]" id="create_member_hero_id" placeholder='Enter hero_id' required>
+          <button class=" button signInButton">Add Member</button>
+        </form>
+        <!-- delete_member -->
+        <form id='delete_member'>
+          <input type="text" name="members[id]" id="delete_member_id" placeholder='Enter member_id' required>
+          <button class=" button signInButton">Delete Member</button>
+        </form>
+        <!-- clean_all_heros -->
+        <form id='clean_all_members'>
+          <button class=" button signInButton">Clean Members Form</button>
+        </form>
+      </section>
+      <section id='informations'>
+        <h2 class="all_teams_information" id="all_teams_information"></h2>
+        <h2 class="message" id="one_team_information"></h2>
+        <h2 class="message" id="all_heros_information"></h2>
+        <h2 class="message" id="all_members_information"></h2>
+      </section>
       <h2 class="message" id="user_message"></h2>
     </body>
 </html>

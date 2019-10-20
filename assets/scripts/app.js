@@ -21,4 +21,11 @@ $(() => {
   $('#clean_all_heros').on('submit', events.onCleanAllHeros)
   $('#create_member').on('submit', events.onCreateMember)
   $('#show_all_members').on('submit', events.onShowAllMembers)
+  $('#delete_member').on('submit', events.onDeleteMember)
+  $('#clean_all_members').on('submit', events.onCleanAllMembers)
+
+  $('#changePassword_and_sign_out').hide()
+  $('#all_team_function').hide()
+  $('#all_hero_function').hide()
+  $('#all_member_function').hide()
 })

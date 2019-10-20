@@ -135,6 +135,10 @@ const onCreateMember = function (event) {
   api.createMember(dataObj)
     .then(ui.onCreateMemberSuccess)
     .catch(ui.onCreateMemberFailure)
+
+  api.showTeam(createMemberTeamId)
+    .then(ui.onShowTeamSuccess)
+    .catch(ui.onShowTeamFailure)
 }
 
 const onShowAllMembers = function (event) {
@@ -142,6 +146,19 @@ const onShowAllMembers = function (event) {
   api.showAllMembers()
     .then(ui.onShowAllMembersSuccess)
     .catch(ui.onShowAllMembersFailure)
+}
+
+const onDeleteMember = function (event) {
+  event.preventDefault()
+  const deleteMemberId = document.getElementById('delete_member_id').value
+  api.deleteMember(deleteMemberId)
+    .then(ui.onDeleteMemberSuccess)
+    .catch(ui.onDeleteMemberFailure)
+}
+
+const onCleanAllMembers = function (event) {
+  event.preventDefault()
+  $('#all_members_information').html('')
 }
 
 module.exports = {
@@ -158,5 +175,7 @@ module.exports = {
   onShowAllHeros,
   onCleanAllHeros,
   onCreateMember,
-  onShowAllMembers
+  onShowAllMembers,
+  onDeleteMember,
+  onCleanAllMembers
 }

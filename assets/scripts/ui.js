@@ -41,6 +41,13 @@ const onSignInSuccess = function (responseData) {
   // console.log(responseData)
   store.user = responseData.user
   // console.log('store is', store)
+  const bodyElement = document.getElementById('body')
+  bodyElement.style.backgroundImage = "url('')"
+  $('#changePassword_and_sign_out').show()
+  $('#all_team_function').show()
+  $('#all_hero_function').show()
+  $('#all_member_function').show()
+  $('#sign_in_and_sign_up').hide()
 }
 
 const onSignInFailure = function () {
@@ -64,6 +71,15 @@ const onChangePasswordFailure = function () {
 const onSignOutSuccess = function () {
   successMessage('Sign out successfully!')
   setTimeout(function () { $('#user_message').text('') }, 2000)
+
+  const bodyElement = document.getElementById('body')
+  bodyElement.style.backgroundImage = "url('https://i.imgur.com/VRoPl1v.jpg')"
+
+  $('#changePassword_and_sign_out').hide()
+  $('#all_team_function').hide()
+  $('#all_hero_function').hide()
+  $('#all_member_function').hide()
+  $('#sign_in_and_sign_up').show()
 }
 
 const onSignOutFailure = function () {
@@ -184,7 +200,7 @@ const onCreateMemberSuccess = function (responseData) {
   setTimeout(function () { $('#user_message').text('') }, 2000)
   console.log('onCreateMemberSuccess is ', responseData.member.team)
   $('#create_member').trigger('reset')
-  $('#one_team_information').html('')
+  // $('#one_team_information').html('')
 
   // const selectTeamHtml = selectTeamTemplate({ team: responseData.member })
   // console.log('selectTeamHtml is ', selectTeamHtml)
@@ -216,6 +232,20 @@ const onShowAllMembersFailure = function (responseData) {
   console.log('responseData is ', responseData)
 }
 
+const onDeleteMemberSuccess = function (responseData) {
+  successMessage('Delete member successfully!')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+  // console.log('responseData is ', responseData)
+  $('#delete_member').trigger('reset')
+}
+
+const onDeleteMemberFailure = function (responseData) {
+  failureMessage('Delete member failed')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+  // console.log('responseData is ', responseData)
+  $('#delete_member').trigger('reset')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -240,5 +270,7 @@ module.exports = {
   onCreateMemberSuccess,
   onCreateMemberFailure,
   onShowAllMembersSuccess,
-  onShowAllMembersFailure
+  onShowAllMembersFailure,
+  onDeleteMemberSuccess,
+  onDeleteMemberFailure
 }

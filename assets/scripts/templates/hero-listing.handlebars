@@ -3,7 +3,13 @@
 <div class="col-4">
   <section data-id="{{hero.id}}" class="one_part_of_the_list">
     <h6><span class="wordRed">Hero_Id: </span>{{hero.id}}</h6>
-    <h6><span class="wordRed">Hero_Name: </span>{{limit hero.name 15}}</h6>
+    <h6><span class="wordRed">Hero_Name: </span>{{hero.name}}</h6>
+    <h6><span class="wordRed">Damage_Type: </span>{{hero.damage_type}}</h6>
+    <h6><span class="wordRed">Damage: </span>{{hero.damage}}</h6>
+    <h6><span class="wordRed">Toughness: </span>{{hero.toughness}}</h6>
+    <h6><span class="wordRed">Attack_Range: </span>{{hero.attack_range}}</h6>
+    <h6><span class="wordRed">Crowd_Control: </span>{{hero.crowd_control}}</h6>
+    <h6><span class="wordRed">Mobility: </span>{{hero.mobility}}</h6>
   </section>
 </div>
 {{/each}}
