@@ -3,6 +3,7 @@
     <head>
       <title>Example</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -12,109 +13,178 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body id='body'>
+
+
+      <section id='nav'>
+        <div class="bs-example">
+          <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <button class="signUpButton_nav navbar-brand" id='nav_news'>News</button>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <div class="navbar-nav">
+                  <!-- <button class="signUpButton_nav nav-item nav-link" id='nav_news'>News</button> -->
+                  <button class="signUpButton_nav nav-item nav-link active" id='nav_teams'>Teams</button>
+                  <button class="signUpButton_nav nav-item nav-link" id='nav_heros'>Heros</button>
+                  <button class="signUpButton_nav nav-item nav-link" id='nav_compares'>Compare</button>
+              </div>
+              <div class="navbar-nav ml-auto">
+                <a class="signUpButton_nav nav-item nav-link  trigger_popup_fricc" id='nav_change_pwd'>change_pwd</a>
+                <button class="signUpButton_nav nav-item nav-link" id='nav_logout'>Logout</button>
+              </div>
+            </div>
+            </nav>
+          </div>
+        </section>
+
+        <div class="hover_bkgr_fricc">
+          <span class="helper"></span>
+          <div>
+            <h2>Change Your Password</h2>
+            <div class="popupCloseButton">X</div>
+            <form class="changepassword" id='change-password'>
+              <input class='col-10 fancy_input' type="password" name="passwords[old]" placeholder='Enter old password' required>
+              <input class='col-10 fancy_input' type="password" name="passwords[new]" placeholder='Enter new password' required>
+              <button class=" button button1 changePasswordButton" id="toShowChangePasswordForm">Change Password</button>
+            </form>
+          </div>
+        </div>
+
       <!--                        sign_in_and_sign_up                        -->
-      <section class='container sign_in_and_sign_up' id='sign_in_and_sign_up'>
+      <section class='container col-2 sign_in_and_sign_up' id='sign_in_and_sign_up'>
         <!-- sign_in -->
         <form class='sign_in' id='sign-in'>
-          <input class='box' type="email" name="credentials[email]" placeholder='Enter email' required>
-          <input class='box' type="password" name="credentials[password]" placeholder='Enter password' required>
-          <button class="box button signInButton">Sign In</button>
+          <input class='box fancy_input' type="email" name="credentials[email]" placeholder='Enter email' required>
+          <input class='box fancy_input' type="password" name="credentials[password]" placeholder='Enter password' required>
+          <button class="box signUpButton">Sign In</button>
         </form>
         <!-- sign_up -->
         <form class='sign_up' id='sign-up'>
-          <input class='box' type="email" name="credentials[email]" placeholder='Enter email' required>
-          <input class='box' type="password" name="credentials[password]" placeholder='Enter password' required>
-          <input class='box' type="password" name="credentials[password_confirmation]" placeholder='Enter password again' required>
-          <button class="box button signUpButton">Sign Up</button>
+          <input class='box fancy_input' type="email" name="credentials[email]" placeholder='Enter email' required>
+          <input class='box fancy_input' type="password" name="credentials[password]" placeholder='Enter password' required>
+          <input class='box fancy_input' type="password" name="credentials[password_confirmation]" placeholder='Enter password again' required>
+          <button class="box signUpButton">Sign Up</button>
         </form>
       </section>
-      <!--                    changePassword_and_sign_out                    -->
-      <section id='changePassword_and_sign_out'>
-        <!-- change_pwd -->
-        <form class="changepassword" id='change-password'>
-          <input type="password" name="passwords[old]" placeholder='Enter old password' required>
-          <input type="password" name="passwords[new]" placeholder='Enter new password' required>
-          <button class=" button changePasswordButton" id="toShowChangePasswordForm">Change Password</button>
-        </form>
-        <!-- sign_out -->
-        <form class="signout" id='sign-out'>
-          <button class="button signOutButton" id="toShowSignOut">Sign Out</button>
-        </form>
+
+      <!--                               news                               -->
+      <section class='news' id='news'>
+        <div class="div_news first">
+          <p>ANNIVERSARY MURAL & GIFTS <span class="price"><a href="https://nexus.leagueoflegends.com/en-us/2019/10/anniversary-mural-gifts/">News</a></span><br />
+            <small>Day One: Anniversary Icon, Emote, and Ward Skin---Day Two: 6300 Blue Essence---Day Three: Masterwork Chest + Hextech Key---Day Four: Little Legends Rare Egg---Day Five: 3000 Orange Essence---Day Six: 4 Skin Shards---Day Seven: 25 Prestige Points---Day Eight: 200 Worlds 2019 Tokens---Day Nine: 2 Gemstones---Day Ten: Legendary Skin---Day Eleven: Annie-versary + Birthday Border + Icon .</small>
+          </p>
+        </div>
+
+        <div class="div_news second">
+          <p>Steamed Crawfish <span class="price"><a href="https://nexus.leagueoflegends.com/en-us/2019/10/dev-lets-talk-about-urf/">URF</a></span><br />
+          <small>Hello friends! Happy 10 years of League of Legends! As announced during our 10-year anniversary stream, URF will be coming back for a limited time, starting on October 28, 2019. Not ARURF. URF! You may be confused as to why we’re bringing back a mode that we said would never return, and the truth of the matter is that this is an experiment. We’re trying this “new” version of URF for this special League of Legends milestone, but we still think the game mode is a risk when   considering churn for players. That being said, we know that players have been asking for URF’s return, and we want to do our best to make it work. </small></p>
+        </div>
+
+        <div class="div_news dessert">
+          <p>Where to Watch the League of Legends Origins Doc <span class="price"><a href="https://na.leagueoflegends.com/en/news/game-updates/special-event/where-watch-league-legends-origins-doc">News</a></span><br />
+          <small>As we were making League of Legends in the early days, we were thinking this journey we all took together could be worth capturing for the community. From 2012-2017, Leslie Iwerks, renowned documentary maker, joined us on our journey as we built and scaled League of Legends. For our 10 year anniversary, we're sharing the footage and history from the early days of League of Legends. For the 10 Year Anniversary of League of Legends, we wanted to share the interviews and moments she captured.</small></p>
+        </div>
       </section>
-      <!--                         all_team_function                         -->
-      <section id='all_team_function'>
-        <!-- index_team -->
-        <form id='index_team'>
-          <button class=" button signInButton">See Your Teams</button>
-        </form>
-        <!-- create_team -->
-        <form id='create_team'>
-          <input type="text" name="teams[name]" id="create_team_name" placeholder='Enter team_name' required>
-          <input type="date" name="teams[create_date]" id="create_team_create_date" placeholder='Enter create_date' required>
-          <input type="text" name="teams[comment]" id="create_team_comment" placeholder='Enter comment'>
-          <button class=" button signInButton">Create Team</button>
-        </form>
-        <!-- show_team -->
-        <form id='show_team'>
-          <input type="text" name="teams[id]" id="show_team_id" placeholder='Enter your_team_id' required>
-          <button class=" button signInButton">Select Team</button>
-        </form>
-        <!-- show_team -->
-        <form id='update_team'>
-          <input type="text" name="teams[id]" id="update_team_id" placeholder='Enter your_team_id' required>
-          <input type="text" name="teams[name]" id="update_team_name" placeholder='Enter team_name'>
-          <input type="text" name="teams[comment]" id="update_team_comment" placeholder='Enter comment'>
-          <button class=" button signInButton">Update Team</button>
-        </form>
-        <!-- destroy_team -->
-        <form id='destroy_team'>
-          <input type="text" name="teams[id]" id="destroy_team_id" placeholder='Enter your_team_id' required>
-          <button class=" button signInButton">Delete Team</button>
-        </form>
-        <!-- clean_index_team -->
-        <form id='clean_index_team'>
-          <button class=" button signInButton">Clean Teams Form</button>
-        </form>
+
+      <section class='one_three_container' id='one_three_container'>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm red">
+              <!-- One of three columns -->
+              <section class='all_team_function ' id='all_team_function'>
+                <!-- index_team -->
+                <form id='index_team'>
+                  <button class=" button button1 signInButton">See Your Teams</button>
+                </form>
+                <section id='input_form_team'>
+                  <!-- create_team -->
+                  <form id='create_team'>
+                    <input type="text" name="teams[name]" id="create_team_name" placeholder='Enter team_name' required>
+                    <input type="date" name="teams[create_date]" id="create_team_create_date" placeholder='Enter create_date' required>
+                    <input type="text" name="teams[comment]" id="create_team_comment" placeholder='Enter comment'>
+                    <button class=" button button1 signInButton">Create Team</button>
+                  </form>
+                  <!-- show_team -->
+                  <form id='show_team'>
+                    <input type="text" name="teams[id]" id="show_team_id" placeholder='Enter your_team_id' required>
+                    <button class=" button button1 signInButton">Select Team</button>
+                  </form>
+                  <!-- show_team -->
+                  <form id='update_team'>
+                    <input type="text" name="teams[id]" id="update_team_id" placeholder='Enter your_team_id' required>
+                    <input type="text" name="teams[name]" id="update_team_name" placeholder='Enter team_name'>
+                    <input type="text" name="teams[comment]" id="update_team_comment" placeholder='Enter comment'>
+                    <button class=" button button1 signInButton">Update Team</button>
+                  </form>
+                  <!-- destroy_team -->
+                  <form id='destroy_team'>
+                    <input type="text" name="teams[id]" id="destroy_team_id" placeholder='Enter your_team_id' required>
+                    <button class=" button button1 signInButton">Delete Team</button>
+                  </form>
+                </section>
+                <!-- clean_index_team -->
+                <form id='clean_index_team'>
+                  <button class=" button button1 signInButton">Clean Teams Form</button>
+                </form>
+                <!-- <h2 class="all_teams_information" id="all_teams_information"></h2> -->
+              </section>
+              <h2 class="all_teams_information" id="all_teams_information"></h2>
+              <h2 class="message" id="one_team_information"></h2>
+            </div>
+            <div class="col-sm green">
+              <!-- One of three columns -->
+              <section class='all_hero_function ' id='all_hero_function'>
+                <!-- show_all_heros -->
+                <form  id='show_all_heros'>
+                  <button class=" button button2 signInButton">Show All Heros</button>
+                </form>
+                <!-- clean_all_heros -->
+                <form id='clean_all_heros'>
+                  <button class=" button button2 signInButton">Clean Heros Form</button>
+                </form>
+              </section>
+              <h2 class="message" id="all_heros_information"></h2>
+            </div>
+            <div class="col-sm blue">
+              <!-- One of three columns -->
+              <section class='all_member_function ' id='all_member_function'>
+                <!-- show_all_members -->
+                <form  id='show_all_members'>
+                  <button class=" button button3 signInButton">Show Members Form</button>
+                </form>
+                <section id='input_form_member'>
+                  <!-- create_member -->
+                  <form id='create_member'>
+                    <input type="text" name="members[team_id]" id="create_member_team_id" placeholder='Enter team_id' required>
+                    <input type="text" name="members[hero_id]" id="create_member_hero_id" placeholder='Enter hero_id' required>
+                    <button class=" button button3 signInButton">Add Member</button>
+                  </form>
+                  <!-- delete_member -->
+                  <form id='delete_member'>
+                    <input type="text" name="members[id]" id="delete_member_id" placeholder='Enter member_id' required>
+                    <button class=" button button3 signInButton">Delete Member</button>
+                  </form>
+                </section>
+                <!-- clean_all_heros -->
+                <form id='clean_all_members'>
+                  <button class=" button button3 signInButton">Clean Members Form</button>
+                </form>
+              </section>
+              <h2 class="message" id="all_members_information"></h2>
+            </div>
+          </div>
+        </div>
       </section>
-      <!--                         all_hero_function                         -->
-      <section id='all_hero_function'>
-        <!-- show_all_heros -->
-        <form  id='show_all_heros'>
-          <button class=" button signInButton">Show All Heros</button>
-        </form>
-        <!-- clean_all_heros -->
-        <form id='clean_all_heros'>
-          <button class=" button signInButton">Clean Heros Form</button>
-        </form>
-      </section>
-      <!--                        all_member_function                        -->
-      <section id='all_member_function'>
-        <!-- show_all_members -->
-        <form  id='show_all_members'>
-          <button class=" button signInButton">Show Members Form</button>
-        </form>
-        <!-- create_member -->
-        <form id='create_member'>
-          <input type="text" name="members[team_id]" id="create_member_team_id" placeholder='Enter team_id' required>
-          <input type="text" name="members[hero_id]" id="create_member_hero_id" placeholder='Enter hero_id' required>
-          <button class=" button signInButton">Add Member</button>
-        </form>
-        <!-- delete_member -->
-        <form id='delete_member'>
-          <input type="text" name="members[id]" id="delete_member_id" placeholder='Enter member_id' required>
-          <button class=" button signInButton">Delete Member</button>
-        </form>
-        <!-- clean_all_heros -->
-        <form id='clean_all_members'>
-          <button class=" button signInButton">Clean Members Form</button>
-        </form>
-      </section>
-      <section id='informations'>
-        <h2 class="all_teams_information" id="all_teams_information"></h2>
-        <h2 class="message" id="one_team_information"></h2>
-        <h2 class="message" id="all_heros_information"></h2>
-        <h2 class="message" id="all_members_information"></h2>
-      </section>
+
+
+      <!-- <section id='informations'> -->
+        <!-- <h2 class="all_teams_information" id="all_teams_information"></h2> -->
+        <!-- <h2 class="message" id="one_team_information"></h2> -->
+        <!-- <h2 class="message" id="all_heros_information"></h2> -->
+        <!-- <h2 class="message" id="all_members_information"></h2> -->
+      <!-- </section> -->
       <h2 class="message" id="user_message"></h2>
     </body>
 </html>

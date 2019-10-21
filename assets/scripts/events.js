@@ -66,6 +66,7 @@ const onCreateTeam = function (event) {
 
 const onIndexTeam = function (event) {
   event.preventDefault()
+  $('#input_form_team').show()
 
   api.indexTeam()
     .then(ui.onIndexTeamSuccess)
@@ -76,6 +77,7 @@ const onCleanIndexTeam = function (event) {
   event.preventDefault()
   $('#all_teams_information').html('')
   $('#one_team_information').html('')
+  $('#input_form_team').hide()
 }
 
 const onShowTeam = function (event) {
@@ -143,6 +145,7 @@ const onCreateMember = function (event) {
 
 const onShowAllMembers = function (event) {
   event.preventDefault()
+  $('#input_form_member').show()
   api.showAllMembers()
     .then(ui.onShowAllMembersSuccess)
     .catch(ui.onShowAllMembersFailure)
@@ -158,7 +161,33 @@ const onDeleteMember = function (event) {
 
 const onCleanAllMembers = function (event) {
   event.preventDefault()
+  $('#input_form_member').hide()
   $('#all_members_information').html('')
+}
+
+const onShowNewsPart = function (event) {
+  event.preventDefault()
+  $('#news').show()
+  $('#all_team_function').hide()
+  $('#all_hero_function').hide()
+  $('#all_member_function').hide()
+}
+
+const onShowTeamPart = function (event) {
+  event.preventDefault()
+  $('#news').hide()
+  $('#all_team_function').show()
+  $('#all_hero_function').show()
+  $('#all_member_function').show()
+  $('#one_three_container').show()
+}
+
+const onLogout = function (event) {
+  event.preventDefault()
+
+  api.signOut()
+    .then(ui.onSignOutSuccess)
+    .catch(ui.onSignOutFailure)
 }
 
 module.exports = {
@@ -177,5 +206,8 @@ module.exports = {
   onCreateMember,
   onShowAllMembers,
   onDeleteMember,
-  onCleanAllMembers
+  onCleanAllMembers,
+  onShowTeamPart,
+  onShowNewsPart,
+  onLogout
 }

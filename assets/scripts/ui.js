@@ -43,11 +43,13 @@ const onSignInSuccess = function (responseData) {
   // console.log('store is', store)
   const bodyElement = document.getElementById('body')
   bodyElement.style.backgroundImage = "url('')"
-  $('#changePassword_and_sign_out').show()
-  $('#all_team_function').show()
-  $('#all_hero_function').show()
-  $('#all_member_function').show()
+  // $('#changePassword_and_sign_out').show()
+  // $('#all_team_function').show()
+  // $('#all_hero_function').show()
+  // $('#all_member_function').show()
   $('#sign_in_and_sign_up').hide()
+  $('#nav').show()
+  $('#news').show()
 }
 
 const onSignInFailure = function () {
@@ -73,13 +75,22 @@ const onSignOutSuccess = function () {
   setTimeout(function () { $('#user_message').text('') }, 2000)
 
   const bodyElement = document.getElementById('body')
-  bodyElement.style.backgroundImage = "url('https://i.imgur.com/VRoPl1v.jpg')"
+  bodyElement.style.backgroundImage = "url('https://i.imgur.com/zRvYp9k.png')"
 
   $('#changePassword_and_sign_out').hide()
   $('#all_team_function').hide()
   $('#all_hero_function').hide()
   $('#all_member_function').hide()
   $('#sign_in_and_sign_up').show()
+  $('#nav').hide()
+  $('#news').hide()
+  $('#one_three_container').hide()
+  $('#all_teams_information').html('')
+  $('#one_team_information').html('')
+  $('#all_heros_information').html('')
+  $('#all_members_information').html('')
+  $('#input_form_team').hide()
+  $('#input_form_member').hide()
 }
 
 const onSignOutFailure = function () {
@@ -92,6 +103,7 @@ const onCreateTeamSuccess = function (responseData) {
   setTimeout(function () { $('#user_message').text('') }, 2000)
   // console.log('responseData is ', responseData)
   $('#create_team').trigger('reset')
+  $('#popup1').hide()
 }
 
 const onCreateTeamFailure = function (responseData) {
