@@ -112,8 +112,22 @@ const onDestroyTeam = function (event) {
     .catch(ui.onDestroyTeamFailure)
 }
 
+// const onHeroIcon = function (event) {
+//   event.preventDefault()
+//   console.log('event.target ', event.target)
+// }
+
 const onShowAllHeros = function (event) {
   event.preventDefault()
+  api.showAllHeros()
+    .then(ui.onShowAllHerosSuccess)
+    .catch(ui.onShowAllHerosFailure)
+
+  // $('.hero_icon').on('click', onHeroIcon)
+}
+
+const onShowAllHerosReset = function (event) {
+  // event.preventDefault()
   api.showAllHeros()
     .then(ui.onShowAllHerosSuccess)
     .catch(ui.onShowAllHerosFailure)
@@ -121,7 +135,7 @@ const onShowAllHeros = function (event) {
 
 const onCleanAllHeros = function (event) {
   event.preventDefault()
-  $('#all_heros_information').html('')
+  $('#append_hero').html('')
 }
 
 const onCreateMember = function (event) {
@@ -171,6 +185,10 @@ const onShowNewsPart = function (event) {
   $('#all_team_function').hide()
   $('#all_hero_function').hide()
   $('#all_member_function').hide()
+  $('#all_teams_information').html('')
+  $('#one_team_information').html('')
+  $('#append_hero').html('')
+  $('#all_members_information').html('')
 }
 
 const onShowTeamPart = function (event) {
@@ -209,5 +227,6 @@ module.exports = {
   onCleanAllMembers,
   onShowTeamPart,
   onShowNewsPart,
-  onLogout
+  onLogout,
+  onShowAllHerosReset
 }

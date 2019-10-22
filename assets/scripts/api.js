@@ -136,6 +136,16 @@ const deleteMember = function (deleteMemberId) {
   })
 }
 
+const showOneHero = function (id) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/heros/' + id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -149,5 +159,6 @@ module.exports = {
   showAllHeros,
   createMember,
   showAllMembers,
-  deleteMember
+  deleteMember,
+  showOneHero
 }

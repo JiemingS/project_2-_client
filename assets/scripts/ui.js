@@ -3,10 +3,12 @@
 // require store object, so we can save the user
 // and their token
 const store = require('./store')
+const api = require('./api')
 const showTeamsTemplate = require('./templates/team-listing.handlebars')
 const selectTeamTemplate = require('./templates/team-showing.handlebars')
 const showHerosTemplate = require('./templates/hero-listing.handlebars')
 const showMembersTemplate = require('./templates/member-listing.handlebars')
+const showHerosIconTemplate = require('./templates/hero-icon.handlebars')
 
 const successMessage = function (newText) {
   $('#user_message').text(newText)
@@ -91,6 +93,7 @@ const onSignOutSuccess = function () {
   $('#all_members_information').html('')
   $('#input_form_team').hide()
   $('#input_form_member').hide()
+  $('#append_hero').html('')
 }
 
 const onSignOutFailure = function () {
@@ -189,16 +192,89 @@ const onDestroyTeamFailure = function (responseData) {
   $('#destroy_team').trigger('reset')
 }
 
+const showOneHeroSuccess = function (responseData) {
+  successMessage('Show one hero successfully!')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+  console.log('responseData is ', responseData.hero)
+  // const reallyImportant = showHerosIconTemplate({ heros: responseData.hero })
+  const oneHeroReally = showHerosTemplate({ hero: responseData })
+  console.log('really reallyImportant ', oneHeroReally)
+  $('.oneHeroInfo').append(oneHeroReally)
+  $('.heroInfo').show()
+}
+
+const showOneHeroFailure = function (responseData) {
+  failureMessage('Show one hero failed!')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+  console.log('responseData is ', responseData)
+}
+
+const onHeroIcon = function (event) {
+  console.log('into')
+  $('.oneHeroInfo').html('')
+  event.preventDefault()
+  console.log('event.target ', event.target)
+  const id = parseInt(event.target.id)
+  console.log('id', id)
+  api.showOneHero(id)
+    .then(showOneHeroSuccess)
+    .catch(showOneHeroFailure)
+}
+
 const onShowAllHerosSuccess = function (responseData) {
+  // $('#all_heros_information').html('')
   successMessage('Show heros successfully!')
   setTimeout(function () { $('#user_message').text('') }, 2000)
   console.log('All heros are: ', responseData)
   $('#show_all_heros').trigger('reset')
-  $('#all_heros_information').html('')
+  $('#append_hero').html('')
+  // $('.oneHeroInfo').html('')
 
-  const showHerosHtml = showHerosTemplate({ heros: responseData.heros })
-  console.log(showHerosHtml)
-  $('#all_heros_information').append(showHerosHtml)
+  // showHerosIconTemplate
+  // const showHerosIcon = showHerosIconTemplate({heros: responseData.heros})
+  // const showHerosHtml = showHerosTemplate({ heros: responseData.heros })
+  const showHerosHtml = showHerosIconTemplate({ heros: responseData.heros })
+  console.log('showHerosHtml', showHerosHtml)
+  $('#append_hero').append(showHerosHtml)
+
+  $('.hero_icon').on('click', onHeroIcon)
+  // const x = document.getElementsByClassName('icon_image')
+  // const y = document.getElementsByClassName('icon')
+  // console.log('x', x)
+  // const objArray = x
+  // for (let i = 0; i < objArray.length; i++) {
+  //   console.log('x[' + i + ']', x[i])
+  //   y[i].addEventListener('click', function (event) {
+  //     // alert(i)
+  //     //   console.log('event target', event.target)
+  //     // $('.oneHeroInfo').html(i)
+  //     $('.hero_info_hide').show()
+  //     $('.oneHeroInfo').html('')
+  //     $('.oneHeroInfo').append(objArray[i])
+  //     $('.heroInfo').show()
+  //     $('#all_heros_information').html('')
+  //   })
+  // }
+  // $('#all_heros_information').html('')
+  // $('#all_heros_information').append(showHerosIcon)
+  // $('.hero_info_hide').hide()
+
+  // const x = document.getElementsByClassName('icon_image')
+  // console.log('x', x)
+  // const objArray = x
+  // for (let i = 0; i < objArray.length; i++) {
+  //   console.log('x[' + i + ']', x[i])
+  //   x[i].addEventListener('click', function (event) {
+  //     // alert(i)
+  //     //   console.log('event target', event.target)
+  //     // $('.oneHeroInfo').html(i)
+  //     $('.hero_info_hide').show()
+  //     $('.oneHeroInfo').html('')
+  //     $('.oneHeroInfo').append(objArray[i])
+  //     $('.heroInfo').show()
+  //     $('#all_heros_information').html('')
+  //   })
+  // }
 }
 
 const onShowAllHerosFailure = function (responseData) {

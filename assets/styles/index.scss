@@ -14,14 +14,14 @@ body {
 }
 
 button {
-  background-color: #4CAF50; /* Green */
+  // background-color: #4CAF50; /* Green */
   border: none;
   color: white;
   // padding: 16px 32px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  // font-size: 16px;
   // margin: 4px 2px;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
@@ -84,12 +84,11 @@ button {
 }
 
 .one_part_of_the_list {
-  margin-top: 2vh;
-  padding: 2%;
+  margin: 2vh auto;
   // border: 1px solid black;
   border-bottom: 3px solid grey;
   border-radius: 0px 0px 10px 10px;
-  width: 25vw;
+  width: 15vw;
 }
 
 .sign_in_and_sign_up {
@@ -430,6 +429,74 @@ small {
 }
 /* Popup box BEGIN */
 
+/* Popup box BEGIN */
+.heroInfo {
+  background: rgba(0, 0, 0, .4);
+  cursor: pointer;
+  display: none;
+  height: 100%;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+}
+.heroInfo .helperhero{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.heroInfo > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 551px;
+    min-height: 100px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+.popupCloseButtonhero {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.popupCloseButtonhero:hover {
+    background-color: #ccc;
+}
+.trigger_popup_fricc {
+    // cursor: pointer;
+    // font-size: 20px;
+    // margin: 20px;
+    // display: inline-block;
+    // font-weight: bold;
+}
+/* PoheroInfo*/
+
 form {
   margin-top: 1vh;
+}
+
+.hero_icon_display {
+  display: flex;
+  padding-top: 2vh;
+}
+
+.icon_image {
+
 }

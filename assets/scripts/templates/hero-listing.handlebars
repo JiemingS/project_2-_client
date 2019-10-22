@@ -1,13 +1,18 @@
-{{#each heros as |hero|}}
-  {{log hero}}
+{{#each hero as |one_hero|}}
+  {{log one_hero}}
 <div class="col-4">
-  <section data-id="{{hero.id}}" class="one_part_of_the_list">
-    <h6><span class="wordRed">Hero_Id: </span>{{hero.id}}<span class="wordRed"> Hero_Name: </span>{{hero.name}}<span class="wordRed"> Damage_Type: </span>{{hero.damage_type}}</h6>
-    <h6><span class="wordRed">Damage: </span>{{hero.damage}}</h6>
-    <h6><span class="wordRed">Toughness: </span>{{hero.toughness}}</h6>
-    <h6><span class="wordRed">Attack_Range: </span>{{hero.attack_range}}</h6>
-    <h6><span class="wordRed">Crowd_Control: </span>{{hero.crowd_control}}</h6>
-    <h6><span class="wordRed">Mobility: </span>{{hero.mobility}}</h6>
+  <section data-id="{{one_hero.id}}" class="one_part_of_the_list icon_image">
+    <img class="" src="{{one_hero.icon}}" alt="Icon" width="60vh" height="60vh">
+    <section>
+      <h6><span class="wordRed">Id: </span>{{one_hero.id}}</h6>
+      <h6><span class="wordRed">Hero_Id: </span>{{one_hero.hero_id}}<span class="wordRed"> Hero_Name: </span>{{one_hero.name}}</h6>
+      <h6><span class="wordRed">Damage_Type: </span>{{one_hero.damage_type}}</h6>
+      <h6><span class="wordRed">Damage: </span>{{one_hero.damage}}</h6>
+      <h6><span class="wordRed">Toughness: </span>{{one_hero.toughness}}</h6>
+      <h6><span class="wordRed">Attack_Range: </span>{{one_hero.attack_range}}</h6>
+      <h6><span class="wordRed">Crowd_Control: </span>{{one_hero.crowd_control}}</h6>
+      <h6><span class="wordRed">Mobility: </span>{{one_hero.mobility}}</h6>
+    </section>
   </section>
 </div>
 {{/each}}
