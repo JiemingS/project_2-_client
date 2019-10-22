@@ -26,6 +26,7 @@ $(() => {
   $('#nav_news').on('click', events.onShowNewsPart)
   $('#nav_teams').on('click', events.onShowTeamPart)
   $('#nav_logout').on('click', events.onLogout)
+  // $('#XXX').on('click', events.onDeleteMemberByX)
 
   $('#changePassword_and_sign_out').hide()
   $('#all_team_function').hide()

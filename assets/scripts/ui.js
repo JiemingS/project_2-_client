@@ -305,6 +305,17 @@ const onCreateMemberFailure = function (responseData) {
   $('#create_member').trigger('reset')
 }
 
+const onDeleteMemberByX = function (event) {
+  event.preventDefault()
+  console.log('event.target.value ', event.target.getAttribute('value'))
+  const idValue = event.target.getAttribute('value')
+  // const deleteMemberIdXXX = document.getElementById('XXX_member_id').value
+  // console.log('deleteMemberIdXXX', deleteMemberIdXXX)
+  api.deleteMember(idValue)
+    .then(onDeleteMemberSuccess)
+    .catch(onDeleteMemberFailure)
+}
+
 const onShowAllMembersSuccess = function (responseData) {
   successMessage('Show All Members successfully!')
   setTimeout(function () { $('#user_message').text('') }, 2000)
@@ -323,6 +334,8 @@ const onShowAllMembersSuccess = function (responseData) {
   // console.log('dropListHeroHtml ', dropListHeroHtml)
   $('#dropMember').html('')
   $('#dropMember').append(dropListMemberHtml)
+
+  $('#XXX').on('click', onDeleteMemberByX)
 }
 
 const onShowAllMembersFailure = function (responseData) {
