@@ -151,8 +151,7 @@ const onCreateMember = function (event) {
   const dataObj = {
     member: {
       team_id: teamIdNeed,
-      hero_id: heroIdNeed,
-      user_id: store.user.id
+      hero_id: heroIdNeed
     }
   }
   api.createMember(dataObj)
