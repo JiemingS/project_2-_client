@@ -336,6 +336,8 @@ const onShowAllMembersSuccess = function (responseData) {
   $('#dropMember').append(dropListMemberHtml)
 
   $('#XXX').on('click', onDeleteMemberByX)
+  // const allX = document.getElementsByClassName('XXX')
+  // console.log('allX !!!!!', allX)
 }
 
 const onShowAllMembersFailure = function (responseData) {
