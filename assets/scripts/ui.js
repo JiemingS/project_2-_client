@@ -122,60 +122,60 @@ const onCreateTeamFailure = function (responseData) {
 const onIndexTeamSuccess = function (responseData) {
   successMessage('Index team successfully!')
   setTimeout(function () { $('#user_message').text('') }, 2000)
-  console.log('responseData is ', responseData)
+  // console.log('responseData is ', responseData)
   $('#index_team').trigger('reset')
   $('#one_team_information').html('')
   $('#all_teams_information').html('')
 
   const showTeamsHtml = showTeamsTemplate({ teams: responseData.teams })
-  console.log(showTeamsHtml)
+  // console.log(showTeamsHtml)
   $('#all_teams_information').append(showTeamsHtml)
 }
 
 const onIndexTeamFailure = function (responseData) {
   failureMessage('Index team failed')
   setTimeout(function () { $('#user_message').text('') }, 2000)
-  console.log('responseData is ', responseData)
+  // console.log('responseData is ', responseData)
   $('#index_team').trigger('reset')
 }
 
 const onShowTeamSuccess = function (responseData) {
   successMessage('Show team successfully!')
   setTimeout(function () { $('#user_message').text('') }, 2000)
-  console.log('responseData is ', responseData)
+  // console.log('responseData is ', responseData)
   $('#show_team').trigger('reset')
   $('#one_team_information').html('')
   $('#all_teams_information').html('')
 
   const selectTeamHtml = selectTeamTemplate({ team: responseData })
-  console.log('selectTeamHtml is ', selectTeamHtml)
+  // console.log('selectTeamHtml is ', selectTeamHtml)
   $('#one_team_information').append(selectTeamHtml)
 }
 
 const onShowTeamFailure = function (responseData) {
   failureMessage('Show team failed')
   setTimeout(function () { $('#user_message').text('') }, 2000)
-  console.log('responseData is ', responseData)
+  // console.log('responseData is ', responseData)
   $('#show_team').trigger('reset')
 }
 
 const onUpdateTeamSuccess = function (responseData) {
   successMessage('Update team successfully!')
   setTimeout(function () { $('#user_message').text('') }, 2000)
-  console.log('responseData is ', responseData)
+  // console.log('responseData is ', responseData)
   $('#update_team').trigger('reset')
   $('#one_team_information').html('')
   $('#all_teams_information').html('')
 
   const selectTeamHtml = selectTeamTemplate({ team: responseData })
-  console.log('selectTeamHtml is ', selectTeamHtml)
+  // console.log('selectTeamHtml is ', selectTeamHtml)
   $('#one_team_information').append(selectTeamHtml)
 }
 
 const onUpdateTeamFailure = function (responseData) {
   failureMessage('Update team failed')
   setTimeout(function () { $('#user_message').text('') }, 2000)
-  console.log('responseData is ', responseData)
+  // console.log('responseData is ', responseData)
   $('#update_team').trigger('reset')
 }
 
@@ -198,10 +198,10 @@ const onDestroyTeamFailure = function (responseData) {
 const showOneHeroSuccess = function (responseData) {
   successMessage('Show one hero successfully!')
   setTimeout(function () { $('#user_message').text('') }, 2000)
-  console.log('responseData is ', responseData.hero)
+  // console.log('responseData is ', responseData.hero)
   // const reallyImportant = showHerosIconTemplate({ heros: responseData.hero })
   const oneHeroReally = showHerosTemplate({ hero: responseData })
-  console.log('really reallyImportant ', oneHeroReally)
+  // console.log('really reallyImportant ', oneHeroReally)
   $('.oneHeroInfo').append(oneHeroReally)
   $('.heroInfo').show()
 }
@@ -209,16 +209,16 @@ const showOneHeroSuccess = function (responseData) {
 const showOneHeroFailure = function (responseData) {
   failureMessage('Show one hero failed!')
   setTimeout(function () { $('#user_message').text('') }, 2000)
-  console.log('responseData is ', responseData)
+  // console.log('responseData is ', responseData)
 }
 
 const onHeroIcon = function (event) {
-  console.log('into')
+  // console.log('into')
   $('.oneHeroInfo').html('')
   event.preventDefault()
-  console.log('event.target ', event.target)
+  // console.log('event.target ', event.target)
   const id = parseInt(event.target.id)
-  console.log('id', id)
+  // console.log('id', id)
   api.showOneHero(id)
     .then(showOneHeroSuccess)
     .catch(showOneHeroFailure)
@@ -228,7 +228,7 @@ const onShowAllHerosSuccess = function (responseData) {
   // $('#all_heros_information').html('')
   successMessage('Show heros successfully!')
   setTimeout(function () { $('#user_message').text('') }, 2000)
-  console.log('All heros are: ', responseData)
+  // console.log('All heros are: ', responseData)
   $('#show_all_heros').trigger('reset')
   $('#append_hero').html('')
   // $('.oneHeroInfo').html('')
@@ -237,7 +237,7 @@ const onShowAllHerosSuccess = function (responseData) {
   // const showHerosIcon = showHerosIconTemplate({heros: responseData.heros})
   // const showHerosHtml = showHerosTemplate({ heros: responseData.heros })
   const showHerosHtml = showHerosIconTemplate({ heros: responseData.heros })
-  console.log('showHerosHtml', showHerosHtml)
+  // console.log('showHerosHtml', showHerosHtml)
   $('#append_hero').append(showHerosHtml)
 
   $('.hero_icon').on('click', onHeroIcon)
@@ -289,7 +289,7 @@ const onShowAllHerosFailure = function (responseData) {
 const onCreateMemberSuccess = function (responseData) {
   successMessage('Create Member successfully!')
   setTimeout(function () { $('#user_message').text('') }, 2000)
-  console.log('onCreateMemberSuccess is ', responseData.member.team)
+  // console.log('onCreateMemberSuccess is ', responseData.member.team)
   $('#create_member').trigger('reset')
   // $('#one_team_information').html('')
 
@@ -307,7 +307,7 @@ const onCreateMemberFailure = function (responseData) {
 
 const onDeleteMemberByX = function (event) {
   event.preventDefault()
-  console.log('event.target.value ', event.target.getAttribute('value'))
+  // console.log('event.target.value ', event.target.getAttribute('value'))
   const idValue = event.target.getAttribute('value')
   // const deleteMemberIdXXX = document.getElementById('XXX_member_id').value
   // console.log('deleteMemberIdXXX', deleteMemberIdXXX)
@@ -320,22 +320,23 @@ const onShowAllMembersSuccess = function (responseData) {
   successMessage('Show All Members successfully!')
   setTimeout(function () { $('#user_message').text('') }, 2000)
 
-  console.log('responseData is ', responseData)
-  console.log('responseData is ', responseData.members)
+  // console.log('responseData is ', responseData)
+  // console.log('responseData is ', responseData.members)
   $('#all_members_information').html('')
 
   const showMembersHtml = showMembersTemplate({ members: responseData.members })
-  console.log('is ', showMembersHtml)
+  // console.log('is ', showMembersHtml)
   $('#all_members_information').append(showMembersHtml)
 
   const dropListMemberHtml = fillDropListMember({ members: responseData.members })
-  console.log('dropListMemberHtml ', dropListMemberHtml)
+  // console.log('dropListMemberHtml ', dropListMemberHtml)
   // const dropListHeroHtml = fillDropListHero({ heros: responseData.heros })
   // console.log('dropListHeroHtml ', dropListHeroHtml)
   $('#dropMember').html('')
   $('#dropMember').append(dropListMemberHtml)
 
-  $('#XXX').on('click', onDeleteMemberByX)
+  // $('#XXX').on('click', onDeleteMemberByX)
+  $('.all_x').on('click', onDeleteMemberByX)
   // const allX = document.getElementsByClassName('XXX')
   // console.log('allX !!!!!', allX)
 }
@@ -343,7 +344,7 @@ const onShowAllMembersSuccess = function (responseData) {
 const onShowAllMembersFailure = function (responseData) {
   failureMessage('Show All Members failed')
   setTimeout(function () { $('#user_message').text('') }, 2000)
-  console.log('responseData is ', responseData)
+  // console.log('responseData is ', responseData)
 }
 
 const onDeleteMemberSuccess = function (responseData) {
@@ -366,7 +367,7 @@ const onFillDropListSuccess = function (responseData) {
   setTimeout(function () { $('#user_message').text('') }, 2000)
 
   const dropListTeamHtml = fillDropListTeam({ teams: responseData.teams })
-  console.log('dropListTeamHtml ', dropListTeamHtml)
+  // console.log('dropListTeamHtml ', dropListTeamHtml)
   $('#dropTeam').html('')
   $('#dropTeam').append(dropListTeamHtml)
   // $('#dropTeam').append('<option value="0"> Select </option>')
@@ -383,7 +384,7 @@ const onFillDropListHeroSuccess = function (responseData) {
   successMessage('Fill drop list successfully!')
   setTimeout(function () { $('#user_message').text('') }, 2000)
   const dropListHeroHtml = fillDropListHero({ heros: responseData.heros })
-  console.log('dropListHeroHtml ', dropListHeroHtml)
+  // console.log('dropListHeroHtml ', dropListHeroHtml)
   $('#dropHero').html('')
   $('#dropHero').append(dropListHeroHtml)
 }

@@ -143,11 +143,11 @@ const onCreateMember = function (event) {
   // const createMemberTeamId = document.getElementById('create_member_team_id').value
   const teamIdDropList = document.getElementById('dropTeam')
   const teamIdNeed = teamIdDropList.options[teamIdDropList.selectedIndex].value
-  console.log(teamIdNeed)
+  // console.log(teamIdNeed)
   // const createMemberHeroId = document.getElementById('create_member_hero_id').value
   const heroIdDropList = document.getElementById('dropHero')
   const heroIdNeed = heroIdDropList.options[heroIdDropList.selectedIndex].value
-  console.log(heroIdNeed)
+  // console.log(heroIdNeed)
   const dataObj = {
     member: {
       team_id: teamIdNeed,
