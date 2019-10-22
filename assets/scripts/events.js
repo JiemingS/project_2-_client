@@ -140,26 +140,40 @@ const onCleanAllHeros = function (event) {
 
 const onCreateMember = function (event) {
   event.preventDefault()
-  const createMemberTeamId = document.getElementById('create_member_team_id').value
-  const createMemberHeroId = document.getElementById('create_member_hero_id').value
+  // const createMemberTeamId = document.getElementById('create_member_team_id').value
+  const teamIdDropList = document.getElementById('dropTeam')
+  const teamIdNeed = teamIdDropList.options[teamIdDropList.selectedIndex].value
+  console.log(teamIdNeed)
+  // const createMemberHeroId = document.getElementById('create_member_hero_id').value
+  const heroIdDropList = document.getElementById('dropHero')
+  const heroIdNeed = heroIdDropList.options[heroIdDropList.selectedIndex].value
+  console.log(heroIdNeed)
   const dataObj = {
     member: {
-      team_id: createMemberTeamId,
-      hero_id: createMemberHeroId
+      team_id: teamIdNeed,
+      hero_id: heroIdNeed
     }
   }
   api.createMember(dataObj)
     .then(ui.onCreateMemberSuccess)
     .catch(ui.onCreateMemberFailure)
 
-  api.showTeam(createMemberTeamId)
-    .then(ui.onShowTeamSuccess)
-    .catch(ui.onShowTeamFailure)
+  // api.showTeam(teamIdDropList)
+  //   .then(ui.onShowTeamSuccess)
+  //   .catch(ui.onShowTeamFailure)
 }
 
 const onShowAllMembers = function (event) {
   event.preventDefault()
+  api.indexTeam()
+    .then(ui.onFillDropListSuccess)
+    .catch(ui.onFillDropListFailure)
+
+  api.showAllHeros()
+    .then(ui.onFillDropListHeroSuccess)
+    .catch(ui.onFillDropListFailure)
   $('#input_form_member').show()
+
   api.showAllMembers()
     .then(ui.onShowAllMembersSuccess)
     .catch(ui.onShowAllMembersFailure)

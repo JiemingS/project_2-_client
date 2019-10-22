@@ -1,0 +1,5 @@
+<option value="hide">-- Hero --</option>
+{{#each heros as |hero|}}
+  {{log hero}}
+  <option value="{{hero.id}}">{{hero.name}}</option>
+{{/each}}

@@ -9,6 +9,8 @@ const selectTeamTemplate = require('./templates/team-showing.handlebars')
 const showHerosTemplate = require('./templates/hero-listing.handlebars')
 const showMembersTemplate = require('./templates/member-listing.handlebars')
 const showHerosIconTemplate = require('./templates/hero-icon.handlebars')
+const fillDropListTeam = require('./templates/drop-list-team.handlebars')
+const fillDropListHero = require('./templates/drop-list-hero.handlebars')
 
 const successMessage = function (newText) {
   $('#user_message').text(newText)
@@ -305,6 +307,7 @@ const onCreateMemberFailure = function (responseData) {
 const onShowAllMembersSuccess = function (responseData) {
   successMessage('Show All Members successfully!')
   setTimeout(function () { $('#user_message').text('') }, 2000)
+
   console.log('responseData is ', responseData)
   console.log('responseData is ', responseData.members)
   $('#all_members_information').html('')
@@ -334,6 +337,34 @@ const onDeleteMemberFailure = function (responseData) {
   $('#delete_member').trigger('reset')
 }
 
+const onFillDropListSuccess = function (responseData) {
+  // $('#drop_list_team').html('<option value="hide">-- Team --</option>')
+  successMessage('Fill drop list successfully!')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+
+  const dropListTeamHtml = fillDropListTeam({ teams: responseData.teams })
+  console.log('dropListTeamHtml ', dropListTeamHtml)
+  $('#dropTeam').html('')
+  $('#dropTeam').append(dropListTeamHtml)
+  // $('#dropTeam').append('<option value="0"> Select </option>')
+//   var select = document.getElementById("dropTeam");
+// select.options[select.options.length] = new Option('Text 1', 'Value1');
+}
+
+const onFillDropListFailure = function (responseData) {
+  failureMessage('Fill drop list failed!')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+}
+
+const onFillDropListHeroSuccess = function (responseData) {
+  successMessage('Fill drop list successfully!')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+  const dropListHeroHtml = fillDropListHero({ heros: responseData.heros })
+  console.log('dropListHeroHtml ', dropListHeroHtml)
+  $('#dropHero').html('')
+  $('#dropHero').append(dropListHeroHtml)
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -360,5 +391,8 @@ module.exports = {
   onShowAllMembersSuccess,
   onShowAllMembersFailure,
   onDeleteMemberSuccess,
-  onDeleteMemberFailure
+  onDeleteMemberFailure,
+  onFillDropListSuccess,
+  onFillDropListFailure,
+  onFillDropListHeroSuccess
 }
