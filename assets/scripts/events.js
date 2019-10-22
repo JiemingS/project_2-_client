@@ -181,7 +181,7 @@ const onShowAllMembers = function (event) {
 
 const onDeleteMember = function (event) {
   event.preventDefault()
-  const deleteMemberId = document.getElementById('delete_member_id').value
+  const deleteMemberId = document.getElementById('dropMember').value
   api.deleteMember(deleteMemberId)
     .then(ui.onDeleteMemberSuccess)
     .catch(ui.onDeleteMemberFailure)

@@ -11,6 +11,7 @@ const showMembersTemplate = require('./templates/member-listing.handlebars')
 const showHerosIconTemplate = require('./templates/hero-icon.handlebars')
 const fillDropListTeam = require('./templates/drop-list-team.handlebars')
 const fillDropListHero = require('./templates/drop-list-hero.handlebars')
+const fillDropListMember = require('./templates/drop-list-member.handlebars')
 
 const successMessage = function (newText) {
   $('#user_message').text(newText)
@@ -315,6 +316,13 @@ const onShowAllMembersSuccess = function (responseData) {
   const showMembersHtml = showMembersTemplate({ members: responseData.members })
   console.log('is ', showMembersHtml)
   $('#all_members_information').append(showMembersHtml)
+
+  const dropListMemberHtml = fillDropListMember({ members: responseData.members })
+  console.log('dropListMemberHtml ', dropListMemberHtml)
+  // const dropListHeroHtml = fillDropListHero({ heros: responseData.heros })
+  // console.log('dropListHeroHtml ', dropListHeroHtml)
+  $('#dropMember').html('')
+  $('#dropMember').append(dropListMemberHtml)
 }
 
 const onShowAllMembersFailure = function (responseData) {
