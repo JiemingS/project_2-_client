@@ -1,5 +1,5 @@
 {{#each teams as |team|}}
-  {{log team}}
+  {{!-- {{log team}} --}}
 <div class="col-4">
   <section data-id="{{team.id}}"  class="one_part_of_the_list">
     <h6><span class="wordRed">Team_Id: </span>{{team.id}}</h6>
@@ -14,7 +14,7 @@
     </h5>
     <h6><span class="wordRed">Heros_Name: </span></h6>
     {{#each team.heros as |hero|}}
-      {{log hero}}
+      {{!-- {{log hero}} --}}
       <h6>
         {{#if hero.name}}
           {{hero.name}}
