@@ -19,6 +19,10 @@ User can have their own account and security team data.
 - SASS
 - jQuery
 
+# Link to both back_end and front_end
+- [League of Legend Notebook API](https://github.com/JiemingS/project_2_api)
+- [League of Legend Notebook Client](https://github.com/JiemingS/project_2-_client)
+
 # Development Process and Problem-solving Strategy
 
 For the start, I draw a framework about my program as two part. One part is about the user,
