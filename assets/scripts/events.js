@@ -196,6 +196,45 @@ const onCleanAllMembers = function (event) {
 const onShowNewsPart = function (event) {
   event.preventDefault()
   $('#news').show()
+  $('#new_chart_js').hide()
+  $('#all_team_function').hide()
+  $('#all_hero_function').hide()
+  $('#all_member_function').hide()
+  $('#one_three_container').hide()
+  $('#all_teams_information').html('')
+  $('#chart_1').hide()
+  $('#chart_2').hide()
+  $('#chart3').hide()
+  $('#myChart3').hide()
+  $('#one_team_information').html('')
+  $('#append_hero').html('')
+  $('#all_members_information').html('')
+
+  ui.setZero()
+}
+
+const onShowTeamPart = function (event) {
+  event.preventDefault()
+  $('#news').hide()
+  $('#new_chart_js').hide()
+  $('#chart_1').hide()
+  $('#chart_2').hide()
+  $('#chart3').hide()
+  $('#myChart3').hide()
+  $('#all_team_function').show()
+  $('#one_three_container').show()
+  $('#all_hero_function').show()
+  $('#all_member_function').show()
+  $('#one_three_container').show()
+
+  ui.setZero()
+}
+
+const onShowHeroPart = function (event) {
+  event.preventDefault()
+  $('#new_chart_js').show()
+  $('#news').hide()
+  $('#one_three_container').hide()
   $('#all_team_function').hide()
   $('#all_hero_function').hide()
   $('#all_member_function').hide()
@@ -203,15 +242,10 @@ const onShowNewsPart = function (event) {
   $('#one_team_information').html('')
   $('#append_hero').html('')
   $('#all_members_information').html('')
-}
 
-const onShowTeamPart = function (event) {
-  event.preventDefault()
-  $('#news').hide()
-  $('#all_team_function').show()
-  $('#all_hero_function').show()
-  $('#all_member_function').show()
-  $('#one_three_container').show()
+  api.showAllHeros()
+    .then(ui.onFillChartDropDownHeroSuccess)
+    .catch(ui.onFillDropListFailure)
 }
 
 const onLogout = function (event) {
@@ -220,6 +254,36 @@ const onLogout = function (event) {
   api.signOut()
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFailure)
+}
+
+const onChartOneDropDownForm = function (event) {
+  event.preventDefault()
+
+  const heroIdDropList = document.getElementById('chart1_dropdown')
+  const heroIdNeed = heroIdDropList.options[heroIdDropList.selectedIndex].value
+  // console.log('heroIdNeed ', heroIdNeed)
+  api.showOneHero(heroIdNeed)
+    .then(ui.onGetHeroInfoForChartOneSuccess)
+    .catch(ui.showOneHeroFailure)
+}
+
+const onChartTwoDropDownForm = function (event) {
+  event.preventDefault()
+
+  const heroIdDropList = document.getElementById('chart2_dropdown')
+  const heroIdNeed = heroIdDropList.options[heroIdDropList.selectedIndex].value
+  // console.log('heroIdNeed ', heroIdNeed)
+  api.showOneHero(heroIdNeed)
+    .then(ui.onGetHeroInfoForChartTwoSuccess)
+    .catch(ui.showOneHeroFailure)
+}
+
+const onChartThreeDropDownForm = function (event) {
+  event.preventDefault()
+
+  api.showOneHero(16)
+    .then(ui.onGetHeroInfoForChartThreeSuccess)
+    .catch(ui.showOneHeroFailure)
 }
 
 module.exports = {
@@ -242,5 +306,9 @@ module.exports = {
   onShowTeamPart,
   onShowNewsPart,
   onLogout,
-  onShowAllHerosReset
+  onShowAllHerosReset,
+  onShowHeroPart,
+  onChartOneDropDownForm,
+  onChartTwoDropDownForm,
+  onChartThreeDropDownForm
 }

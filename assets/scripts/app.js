@@ -25,18 +25,28 @@ $(() => {
   $('#clean_all_members').on('submit', events.onCleanAllMembers)
   $('#nav_news').on('click', events.onShowNewsPart)
   $('#nav_teams').on('click', events.onShowTeamPart)
+  $('#nav_heros').on('click', events.onShowHeroPart)
   $('#nav_logout').on('click', events.onLogout)
+  $('#chart1_dropdown_form').on('submit', events.onChartOneDropDownForm)
+  $('#chart2_dropdown_form').on('submit', events.onChartTwoDropDownForm)
+  $('#chart3').on('click', events.onChartThreeDropDownForm)
 
+  $('#chart_1').hide()
+  $('#chart_2').hide()
   $('#changePassword_and_sign_out').hide()
   $('#all_team_function').hide()
   $('#all_hero_function').hide()
   $('#all_member_function').hide()
+  $('#new_chart_js').hide()
   $('#nav').hide()
+  $('#one_three_container').hide()
   $('#news').hide()
   $('#one_three_container').hide()
   $('#input_form_team').hide()
   $('#input_form_member').hide()
   $('.heroInfo').hide()
+  $('#chart3').hide()
+  $('#myChart3').hide()
 
   $('.div_news').on('click', function () {
     $(this).toggleClass('show-description')
@@ -109,4 +119,129 @@ $(() => {
       $list.hide()
     })
   })
+
+  // Chart.defaults.global.defaultFontColor = 'red'
+  // Chart.defaults.global.pointLabelFontSize = 40
+  // const ctx = document.getElementById('myChart').getContext('2d')
+  // const myRadarChart = new Chart(ctx, {
+  //   // The type of chart we want to create
+  //   type: 'radar',
+  //
+  //   // The data for our dataset
+  //   data: {
+  //     labels: ['Running', 'Swimming', 'Eating', 'Cycling'],
+  //     // labels: ['Attack_Range', 'Crowd_Control', 'Damage', 'Mobility', 'Toughness'],
+  //     datasets: [{
+  //       label: 'My First dataset',
+  //       backgroundColor: 'rgba(153, 102, 255, 0.2)',
+  //       borderColor: 'rgba(153, 102, 255, 1)',
+  //       data: [20, 10, 40, 2]
+  //     }]
+  //   },
+  //   // Configuration options go here
+  //   options: {
+  //     scale: {
+  //       // display: false
+  //       pointLabels: {
+  //         fontSize: 20
+  //       }
+  //     }
+  //   }
+  // })
+
+  // const ctx2 = document.getElementById('myChart2').getContext('2d')
+  // const myChart = new Chart(ctx2, {
+  //   // The type of chart we want to create
+  //   type: 'radar',
+  //
+  //   // The data for our dataset
+  //   data: {
+  //     labels: ['Running', 'Swimming', 'Eating', 'Cycling'],
+  //     datasets: [{
+  //       label: 'My First dataset',
+  //       backgroundColor: 'rgba(153, 102, 255, 0.2)',
+  //       borderColor: 'rgba(153, 102, 255, 1)',
+  //       data: [20, 10, 40, 2]
+  //     }]
+  //   },
+  //   // Configuration options go here
+  //   options: {
+  //     scale: {
+  //       // display: false
+  //       pointLabels: {
+  //         fontSize: 20
+  //       }
+  //     }
+  //   }
+  // })
+
+  // const ctx3 = document.getElementById('myChart3')
+  // const myChart3 = new Chart(ctx3, {
+  //   type: 'bar',
+  //   data: {
+  //     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  //     datasets: [{
+  //       label: '# of Votes',
+  //       data: [12, 19, 3, 5, 2, 3],
+  //       backgroundColor: [
+  //         'rgba(255, 99, 132, 0.2)',
+  //         'rgba(54, 162, 235, 0.2)',
+  //         'rgba(255, 206, 86, 0.2)',
+  //         'rgba(75, 192, 192, 0.2)',
+  //         'rgba(153, 102, 255, 0.2)',
+  //         'rgba(255, 159, 64, 0.2)'
+  //       ],
+  //       borderColor: [
+  //         'rgba(255, 99, 132, 1)',
+  //         'rgba(54, 162, 235, 1)',
+  //         'rgba(255, 206, 86, 1)',
+  //         'rgba(75, 192, 192, 1)',
+  //         'rgba(153, 102, 255, 1)',
+  //         'rgba(255, 159, 64, 1)'
+  //       ],
+  //       borderWidth: 1
+  //     }, {
+  //       label: '# of Votes',
+  //       data: [12, 19, 3, 5, 2, 3],
+  //       backgroundColor: [
+  //         'rgba(255, 99, 132, 0.2)',
+  //         'rgba(54, 162, 235, 0.2)',
+  //         'rgba(255, 206, 86, 0.2)',
+  //         'rgba(75, 192, 192, 0.2)',
+  //         'rgba(153, 102, 255, 0.2)',
+  //         'rgba(255, 159, 64, 0.2)'
+  //       ],
+  //       borderColor: [
+  //         'rgba(255, 99, 132, 1)',
+  //         'rgba(54, 162, 235, 1)',
+  //         'rgba(255, 206, 86, 1)',
+  //         'rgba(75, 192, 192, 1)',
+  //         'rgba(153, 102, 255, 1)',
+  //         'rgba(255, 159, 64, 1)'
+  //       ],
+  //       borderWidth: 1
+  //     }]
+  //   },
+  //   options: {
+  //     scales: {
+  //       yAxes: [{
+  //         ticks: {
+  //           beginAtZero: true,
+  //           fontSize: 20
+  //         }
+  //       }],
+  //       xAxes: [{
+  //         ticks: {
+  //           fontSize: 20
+  //         }
+  //       }]
+  //     }
+  //   },
+  //   legend: {
+  //     labels: {
+  //       // This more specific font property overrides the global property
+  //       fontColor: 'red'
+  //     }
+  //   }
+  // })
 })

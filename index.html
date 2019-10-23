@@ -11,6 +11,7 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     </head>
     <body id='body'>
 
@@ -27,7 +28,7 @@
               <div class="navbar-nav">
                   <!-- <button class="signUpButton_nav nav-item nav-link" id='nav_news'>News</button> -->
                   <button class="signUpButton_nav nav-item nav-link active" id='nav_teams'>Teams</button>
-                  <!-- <button class="signUpButton_nav nav-item nav-link" id='nav_heros'>Heros</button> -->
+                  <button class="signUpButton_nav nav-item nav-link" id='nav_heros'>Heros</button>
                   <!-- <button class="signUpButton_nav nav-item nav-link" id='nav_compares'>Compare</button> -->
               </div>
               <div class="navbar-nav ml-auto">
@@ -219,9 +220,55 @@
                 </form>
               </section>
 
-
               <h2 class="message" id="all_members_information"></h2>
             </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="new_chart_js" id="new_chart_js">
+        <div class="container chart_js">
+          <div class="row">
+            <div class="col-sm">
+
+              <section class="chart1" id='chart1'>
+                <form class="" id="chart1_dropdown_form">
+                  <select class="button3" id="chart1_dropdown">
+                    <!-- <option value="hide">-- Team --</option> -->
+                  </select>
+                  <button class=" button button3 signInButton">Choose Hero</button>
+                </form>
+              </section>
+
+              <!-- width="10vh" height="10vh" -->
+              <section id="chart_1">
+                <canvas id="myChart1" height="300vh"></canvas>
+              </section>
+            </div>
+
+            <div class="col-sm">
+
+              <section class="chart2" id='chart2'>
+                <form class="" id="chart2_dropdown_form">
+                  <select class="button3" id="chart2_dropdown">
+                    <!-- <option value="hide">-- Team --</option> -->
+                  </select>
+                  <button class=" button button3 signInButton">Choose Hero</button>
+                </form>
+              </section>
+
+              <section id="chart_2">
+                <canvas id="myChart2" height="300vh"></canvas>
+              </section>
+            </div>
+          </div>
+
+          <div class="row myChart3">
+            <section class="chart3" id='chart3'>
+              <button class=" button button3 signInButton" id="chart3_dropdown_form">Mix</button>
+            </section>
+            <canvas id="myChart3" height="300"></canvas>
           </div>
         </div>
       </section>
@@ -233,6 +280,7 @@
         <!-- <h2 class="message" id="all_heros_information"></h2> -->
         <!-- <h2 class="message" id="all_members_information"></h2> -->
       <!-- </section> -->
+
       <h2 class="message" id="user_message"></h2>
     </body>
 </html>

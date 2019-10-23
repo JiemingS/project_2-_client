@@ -600,3 +600,15 @@ form {
   font-size: 1rem;
   color: red;
 }
+
+.chart_js {
+  justify-content: center;
+}
+
+.myChart3, .myChart4 {
+  // align-items: center;
+  justify-content: center;
+  width: 80vh;
+  height: 80vh;
+  margin: auto;
+}

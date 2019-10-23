@@ -13,6 +13,10 @@ const fillDropListTeam = require('./templates/drop-list-team.handlebars')
 const fillDropListHero = require('./templates/drop-list-hero.handlebars')
 const fillDropListMember = require('./templates/drop-list-member.handlebars')
 
+let chartDataArray1 = []
+let chartDataArray2 = []
+let numOfChart = 0
+
 const successMessage = function (newText) {
   $('#user_message').text(newText)
   $('#user_message').removeClass('failure')
@@ -79,6 +83,8 @@ const onSignOutSuccess = function () {
   successMessage('Sign out successfully!')
   setTimeout(function () { $('#user_message').text('') }, 2000)
 
+  numOfChart = 0
+
   const bodyElement = document.getElementById('body')
   bodyElement.style.backgroundImage = "url('https://i.imgur.com/zRvYp9k.png')"
 
@@ -89,6 +95,7 @@ const onSignOutSuccess = function () {
   $('#sign_in_and_sign_up').show()
   $('#nav').hide()
   $('#news').hide()
+  $('#new_chart_js').hide()
   $('#one_three_container').hide()
   $('#all_teams_information').html('')
   $('#one_team_information').html('')
@@ -97,6 +104,10 @@ const onSignOutSuccess = function () {
   $('#input_form_team').hide()
   $('#input_form_member').hide()
   $('#append_hero').html('')
+  $('#chart_1').hide()
+  $('#chart_2').hide()
+  $('#chart3').hide()
+  $('#myChart3').hide()
 }
 
 const onSignOutFailure = function () {
@@ -389,6 +400,198 @@ const onFillDropListHeroSuccess = function (responseData) {
   $('#dropHero').append(dropListHeroHtml)
 }
 
+const onFillChartDropDownHeroSuccess = function (responseData) {
+  successMessage('Fill drop list successfully!')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+  const dropListHeroHtml = fillDropListHero({ heros: responseData.heros })
+  // console.log('dropListHeroHtml ', dropListHeroHtml)
+  $('#chart1_dropdown').html('')
+  $('#chart1_dropdown').append(dropListHeroHtml)
+  $('#chart2_dropdown').html('')
+  $('#chart2_dropdown').append(dropListHeroHtml)
+}
+
+const onGetHeroInfoForChartOneSuccess = function (responseData) {
+  successMessage('GHIFCOS successfully!')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+  $('#chart_1').show()
+  // console.log('responseData ', responseData)
+  chartDataArray1 = []
+  chartDataArray1.push(responseData.hero.attack_range / 5)
+  chartDataArray1.push(responseData.hero.crowd_control * 10)
+  chartDataArray1.push(responseData.hero.damage)
+  chartDataArray1.push(responseData.hero.mobility / 4)
+  chartDataArray1.push(responseData.hero.toughness * 10)
+  // console.log(chartDataArray1)
+  numOfChart += 1
+
+  if (numOfChart === 2) {
+    $('#chart3').show()
+    numOfChart = 0
+  }
+
+  Chart.defaults.global.defaultFontColor = 'red'
+  Chart.defaults.global.pointLabelFontSize = 40
+  const ctx1 = document.getElementById('myChart1').getContext('2d')
+  const myRadarChart1 = new Chart(ctx1, {
+    // The type of chart we want to create
+    type: 'radar',
+
+    // The data for our dataset
+    data: {
+      // labels: ['Running', 'Swimming', 'Eating', 'Cycling'],
+      labels: ['Attack_Range', 'Crowd_Control', 'Damage', 'Mobility', 'Toughness'],
+      datasets: [{
+        label: responseData.hero.name,
+        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+        borderColor: 'rgba(153, 102, 255, 1)',
+        data: chartDataArray1
+      }]
+    },
+    // Configuration options go here
+    options: {
+      scale: {
+        // display: false
+        pointLabels: {
+          fontSize: 20
+        },
+        ticks: {
+          min: 0
+        }
+      }
+    }
+  })
+}
+
+const onGetHeroInfoForChartTwoSuccess = function (responseData) {
+  successMessage('GHIFCOS successfully!')
+  setTimeout(function () { $('#user_message').text('') }, 2000)
+  $('#chart_2').show()
+  // console.log('responseData ', responseData)
+  chartDataArray2 = []
+  chartDataArray2.push(responseData.hero.attack_range / 5)
+  chartDataArray2.push(responseData.hero.crowd_control * 10)
+  chartDataArray2.push(responseData.hero.damage)
+  chartDataArray2.push(responseData.hero.mobility / 4)
+  chartDataArray2.push(responseData.hero.toughness * 10)
+  // console.log(chartDataArray2)
+  numOfChart += 1
+
+  if (numOfChart === 2) {
+    $('#chart3').show()
+    numOfChart = 0
+  }
+
+  Chart.defaults.global.defaultFontColor = 'red'
+  Chart.defaults.global.pointLabelFontSize = 40
+  const ctx2 = document.getElementById('myChart2').getContext('2d')
+  const myRadarChart2 = new Chart(ctx2, {
+    // The type of chart we want to create
+    type: 'radar',
+
+    // The data for our dataset
+    data: {
+      // labels: ['Running', 'Swimming', 'Eating', 'Cycling'],
+      labels: ['Attack_Range', 'Crowd_Control', 'Damage', 'Mobility', 'Toughness'],
+      datasets: [{
+        label: responseData.hero.name,
+        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+        borderColor: 'rgba(255, 159, 64, 1)',
+        data: chartDataArray2
+      }]
+    },
+    // Configuration options go here
+    options: {
+      scale: {
+        // display: false
+        pointLabels: {
+          fontSize: 20
+        },
+        ticks: {
+          min: 0
+        }
+      }
+    }
+  })
+}
+
+const onGetHeroInfoForChartThreeSuccess = function () {
+  $('#myChart3').show()
+  const ctx3 = document.getElementById('myChart3')
+  const myChart3 = new Chart(ctx3, {
+    type: 'bar',
+    data: {
+      labels: ['Attack_Range', 'Crowd_Control', 'Damage', 'Mobility', 'Toughness'],
+      datasets: [{
+        label: '# First Hero',
+        data: chartDataArray1,
+        backgroundColor: [
+          'rgba(153, 132, 255, 0.2)',
+          'rgba(153, 162, 255, 0.2)',
+          'rgba(153, 192, 255, 0.2)',
+          'rgba(153, 222, 255, 0.2)',
+          'rgba(153, 252, 255, 0.2)',
+          'rgba(153, 282, 255, 0.2)'
+        ],
+        borderColor: [
+          'rgba(153, 132, 255, 1)',
+          'rgba(153, 162, 255, 1)',
+          'rgba(153, 192, 255, 1)',
+          'rgba(153, 222, 255, 1)',
+          'rgba(153, 252, 255, 1)',
+          'rgba(153, 282, 255, 1)'
+        ],
+        borderWidth: 1
+      }, {
+        label: '# Second Hero',
+        data: chartDataArray2,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true,
+            fontSize: 20
+          }
+        }],
+        xAxes: [{
+          ticks: {
+            fontSize: 20
+          }
+        }]
+      }
+    },
+    legend: {
+      labels: {
+        // This more specific font property overrides the global property
+        fontColor: 'red'
+      }
+    }
+  })
+}
+
+const setZero = function () {
+  numOfChart = 0
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -418,5 +621,10 @@ module.exports = {
   onDeleteMemberFailure,
   onFillDropListSuccess,
   onFillDropListFailure,
-  onFillDropListHeroSuccess
+  onFillDropListHeroSuccess,
+  onFillChartDropDownHeroSuccess,
+  onGetHeroInfoForChartOneSuccess,
+  onGetHeroInfoForChartTwoSuccess,
+  onGetHeroInfoForChartThreeSuccess,
+  setZero
 }
