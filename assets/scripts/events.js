@@ -62,6 +62,10 @@ const onCreateTeam = function (event) {
   api.createTeam(dataObj)
     .then(ui.onCreateTeamSuccess)
     .catch(ui.onCreateTeamFailure)
+
+  // api.indexTeam()
+  //   .then(ui.onIndexTeamSuccess)
+  //   .catch(ui.onIndexTeamFailure)
 }
 
 const onIndexTeam = function (event) {
@@ -158,9 +162,14 @@ const onCreateMember = function (event) {
     .then(ui.onCreateMemberSuccess)
     .catch(ui.onCreateMemberFailure)
 
-  // api.showTeam(teamIdDropList)
+  // api.showTeam(teamIdNeed)
   //   .then(ui.onShowTeamSuccess)
   //   .catch(ui.onShowTeamFailure)
+
+  // api.showAllMembers()
+  //   .then(ui.onShowAllMembersSuccess)
+  //   .catch(ui.onShowAllMembersFailure)
+    // console.log('asd')
 }
 
 const onShowAllMembers = function (event) {

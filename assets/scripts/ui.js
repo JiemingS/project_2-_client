@@ -121,6 +121,14 @@ const onCreateTeamSuccess = function (responseData) {
   // console.log('responseData is ', responseData)
   $('#create_team').trigger('reset')
   $('#popup1').hide()
+
+  api.indexTeam()
+    .then(onIndexTeamSuccess)
+    .catch(onIndexTeamFailure)
+
+  api.indexTeam()
+    .then(onFillDropListSuccess)
+    .catch(onFillDropListFailure)
 }
 
 const onCreateTeamFailure = function (responseData) {
@@ -304,6 +312,14 @@ const onCreateMemberSuccess = function (responseData) {
   $('#create_member').trigger('reset')
   // $('#one_team_information').html('')
 
+  api.indexTeam()
+    .then(onIndexTeamSuccess)
+    .catch(onIndexTeamFailure)
+
+  api.showAllMembers()
+    .then(onShowAllMembersSuccess)
+    .catch(onShowAllMembersFailure)
+
   // const selectTeamHtml = selectTeamTemplate({ team: responseData.member })
   // console.log('selectTeamHtml is ', selectTeamHtml)
   // $('#one_team_information').append(selectTeamHtml)
@@ -325,6 +341,14 @@ const onDeleteMemberByX = function (event) {
   api.deleteMember(idValue)
     .then(onDeleteMemberSuccess)
     .catch(onDeleteMemberFailure)
+
+  api.indexTeam()
+    .then(onIndexTeamSuccess)
+    .catch(onIndexTeamFailure)
+
+  api.showAllMembers()
+    .then(onShowAllMembersSuccess)
+    .catch(onShowAllMembersFailure)
 }
 
 const onShowAllMembersSuccess = function (responseData) {
@@ -363,6 +387,14 @@ const onDeleteMemberSuccess = function (responseData) {
   setTimeout(function () { $('#user_message').text('') }, 2000)
   // console.log('responseData is ', responseData)
   $('#delete_member').trigger('reset')
+
+  api.indexTeam()
+    .then(onIndexTeamSuccess)
+    .catch(onIndexTeamFailure)
+
+  api.showAllMembers()
+    .then(onShowAllMembersSuccess)
+    .catch(onShowAllMembersFailure)
 }
 
 const onDeleteMemberFailure = function (responseData) {
