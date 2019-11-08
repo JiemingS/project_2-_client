@@ -141,13 +141,14 @@ const onCreateTeamFailure = function (responseData) {
 const onIndexTeamSuccess = function (responseData) {
   successMessage('Index team successfully!')
   setTimeout(function () { $('#user_message').text('') }, 2000)
-  // console.log('responseData is ', responseData)
+  console.log('responseData is ', responseData)
+  console.log('responseData.teams is ', responseData.teams)
   $('#index_team').trigger('reset')
   $('#one_team_information').html('')
   $('#all_teams_information').html('')
 
   const showTeamsHtml = showTeamsTemplate({ teams: responseData.teams })
-  // console.log(showTeamsHtml)
+  console.log('showTeamsHtml', showTeamsHtml)
   $('#all_teams_information').append(showTeamsHtml)
 }
 
